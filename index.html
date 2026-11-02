@@ -54,7 +54,7 @@ button:hover{box-shadow:0 0 34px rgba(68,225,255,.55)}button:active{transform:sc
   <div id="msg" role="status" aria-live="polite"></div><div class="fine"><span>AES-256-GCM</span><span>PBKDF2-SHA256 · 600k</span></div>
 </form></div>
 <script>
-(()=>{const M={"v":1,"iter":600000,"salt":"jJUElUJVh6fA7OVZrkEvQg==","iv":"G479Tn5yrJtIBSct","parts":1},K='station-key-v1',S=crypto.subtle,b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0)),
+(()=>{const M={"v":1,"iter":600000,"salt":"AYFXK+yL1ba6kcSItJc0dg==","iv":"rgevrpRqtJpHas5g","parts":1},K='station-key-v1',S=crypto.subtle,b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0)),
  msg=document.getElementById('msg'),f=document.getElementById('f'),go=document.getElementById('go');
  let ctP=null;const ct=()=>ctP||(ctP=Promise.all([...Array(M.parts).keys()].map(i=>fetch('p'+i+'.txt',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('fetch');return r.text()}))).then(a=>b64(a.join(''))));
  async function dec(key){return JSON.parse(new TextDecoder().decode(await S.decrypt({name:'AES-GCM',iv:b64(M.iv)},key,await ct())))}
